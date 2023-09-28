@@ -1,5 +1,7 @@
 import csv
 
+import pytest
+
 
 class Item:
     """
@@ -15,37 +17,27 @@ class Item:
         :param price: Цена за единицу товара.
         :param quantity: Количество товара в магазине.
         """
-        self.__name = name
+        self.name = name
         self.price = price
         self.quantity = quantity
         self.all.append(self)
 
 
     def __repr__(self):
-        return f"{self.__name}"
-    @property
-    def name(self):
-        return self.__name
-
-    @name.setter
-    def name(self, value):
-
-        value = value[:10]
-        self.__name = value
-
-    @classmethod
-    def instantiate_from_csv(cls, path):
-        cls.all.clear()
-        input_file = csv.DictReader(open(path, encoding="utf-8"))
-        for itemdata in input_file:
-            cls(itemdata['name'], itemdata['price'], itemdata['quantity'])
-
-    @staticmethod
-    def string_to_number():
-        pass
+        return f"{self.__class__.__name__}('{self.name}', {self.price}, {self.quantity})"
 
 
+    def __str__(self):
+        return f"{self.name}"
 
+
+if __name__ == '__main__':
+    item1 = Item("Смартфон", 10000, 20)
+
+    print(repr(item1))
+    print(item1)
+
+pytest.main()
 
 
 
