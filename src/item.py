@@ -41,8 +41,8 @@ class Item:
             cls(itemdata['name'], itemdata['price'], itemdata['quantity'])
 
     @staticmethod
-    def string_to_number():
-        pass
+    def string_to_number(self):
+        return len(Item.all)
 
 
 
