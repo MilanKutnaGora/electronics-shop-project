@@ -1,4 +1,5 @@
 import csv
+from os import path
 
 
 class Item:
@@ -29,7 +30,6 @@ class Item:
 
     @name.setter
     def name(self, value):
-
         value = value[:10]
         self.__name = value
 
@@ -41,8 +41,11 @@ class Item:
             cls(itemdata['name'], itemdata['price'], itemdata['quantity'])
 
     @staticmethod
-    def string_to_number():
-        pass
+    def string_to_number(self):
+        return len(Item.all)
+
+
+
 
 
 
