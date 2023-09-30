@@ -41,8 +41,9 @@ class Item:
             cls(itemdata['name'], itemdata['price'], itemdata['quantity'])
 
     @staticmethod
-    def string_to_number(self):
-        return len(Item.all)
+    def string_to_number(string_num):
+        """Статический метод, возвращающий число из числа-строки"""
+        return int(float(string_num))
 
 
 
