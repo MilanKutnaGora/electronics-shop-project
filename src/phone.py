@@ -29,3 +29,4 @@ class Phone(Item):
         if value < 0:
             raise ValueError("Количество сим-карт не может быть отрицательным")
         self.__number_of_sim = value
+
