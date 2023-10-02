@@ -28,6 +28,11 @@ class Item:
         """Магический метод для отображения информации об объекте класса для пользователей"""
         return f"{self.__name}"
 
+    def __add__(self, other):
+        if issubclass(other.__class__, self.__class__):
+            total_sum = self.quantity + other.quantity
+            return total_sum
+        return f"Нельзя складывать объекты разных классов"
 
     @property
     def name(self):
